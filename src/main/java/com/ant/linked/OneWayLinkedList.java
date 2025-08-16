@@ -90,6 +90,7 @@ public class OneWayLinkedList<E> {
         size++;
     }
 
+
     private static class Node<E> {
         private Node pre;
         private E date;
@@ -101,6 +102,7 @@ public class OneWayLinkedList<E> {
             this.date = date;
         }
     }
+
 
     public static void main(String[] args) {
         OneWayLinkedList list = new OneWayLinkedList();
@@ -119,6 +121,7 @@ public class OneWayLinkedList<E> {
             node = node.next;
         }
         System.out.println("链表大小: " + list.size);
+
     }
 
 }

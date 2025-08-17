@@ -25,7 +25,7 @@ public class MergeSort {
         mergeSortC(sorted, start, mid);
         mergeSortC(sorted, mid + 1, end);
 
-        merge(sorted, start, mid + 1, end);
+        merge2(sorted, start, mid + 1, end);
     }
 
     public static void merge(int[] sorted, int index1, int index2, int end) {
@@ -60,5 +60,35 @@ public class MergeSort {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
         }
+    }
+
+
+    public static void merge2(int[] sorted, int index1, int index2, int end) {
+        // 临时数组
+        int[] tmp = new int[end - index1 + 1];
+
+        int i = index1, j = index2, k = 0;
+        for (; i < index2 && j <= end;) {
+            if (sorted[i] < sorted[j]) {
+                tmp[k++] = sorted[i++];
+            } else {
+                tmp[k++] = sorted[j++];
+            }
+        }
+
+        // 剩余部分
+        for (; i < index2; i++) {
+            tmp[k++] = sorted[i];
+        }
+
+        for (; j <= end; j++) {
+            tmp[k++] = sorted[j];
+        }
+
+        // 数组复制
+        for (int l = 0; l <= end -index1 ; l++) {
+            sorted[index1+l] = tmp[l];
+        }
+
     }
 }
